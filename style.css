@@ -1,141 +1,77 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fff0f5;
-  color: #4b2e2e;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Family Selector</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Paste the CSS I gave you here */
+  </style>
+</head>
+<body>
 
-header {
-  background-color: #ffe4e1;
-  text-align: center;
-  padding: 2rem 1rem;
-}
+  <div class="role-buttons">
+    <button onclick="showSection('girl')">Girl</button>
+    <button onclick="showSection('boy')">Boy</button>
+    <button onclick="showSection('mom')">Mom</button>
+    <button onclick="showSection('dad')">Dad</button>
+    <button onclick="showSection('brother')">Brother</button>
+    <button onclick="showSection('sister')">Sister</button>
+    <button onclick="showSection('granny')">Granny</button>
+    <button onclick="showSection('grandfather')">Grandfather</button>
+  </div>
 
-.hero {
-  text-align: center;
-  padding: 3rem 1rem;
-  background: #fff5f8;
-}
+  <div id="girl" class="role-section">
+    <h1>Hello Girl 👧</h1>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
 
-.hero h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
+  <div id="boy" class="role-section">
+    <h1>Hello Boy 👦</h1>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
 
-.hero button {
-  padding: 0.8rem 1.5rem;
-  background-color: #ff69b4;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
+  <div id="mom" class="role-section">
+    <h1>Hello Mom 👩‍👧</h1>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
 
-.hero button:hover {
-  background-color: #ff1493;
-}
+  <div id="dad" class="role-section">
+    <h1>Hello Dad 👨‍👧</h1>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
 
-.products {
-  padding: 2rem 1rem;
-  text-align: center;
-}
+  <div id="brother" class="role-section">
+    <h1>Hello Brother 👦</h1>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
 
-.product-list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
+  <div id="sister" class="role-section">
+    <h1>Hello Sister 👧</h1>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
 
-.product {
-  background-color: #ffe4ec;
-  border-radius: 12px;
-  padding: 1rem;
-  width: 200px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+  <div id="granny" class="role-section">
+    <h1>Hello Granny 👵</h1>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
 
-.product img {
-  width: 100%;
-  border-radius: 10px;
-}
+  <div id="grandfather" class="role-section">
+    <h1>Hello Grandfather 👴</h1>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
 
-footer {
-  background-color: #ffc0cb;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-}
-/* Love animation overlay */
-.love-animation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #00ffff, #e0f7fa);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-  overflow: hidden;
-  animation: fadeIn 0.5s ease forwards;
-}
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.role-section').forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'flex';
+    }
 
-/* Sparkles / hearts */
-.love-animation::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient(#ffffff88 1px, transparent 1px);
-  background-size: 30px 30px;
-  animation: twinkle 4s linear infinite;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.6;
-}
+    function goBack() {
+      document.querySelectorAll('.role-section').forEach(sec => sec.style.display = 'none');
+    }
+  </script>
 
-/* Bud animation from bottom */
-.rose {
-  width: 100px;
-  transform: translateY(100vh);
-  animation: rise 2s ease-out forwards;
-  z-index: 2;
-}
-
-/* Bloomed rose */
-.rose.bloom {
-  content: url('https://i.imgur.com/NV4vyo5.jpg'); /* Replace with any full rose image */
-  animation: none;
-}
-
-/* Keyframes */
-@keyframes rise {
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes twinkle {
-  0% { background-position: 0 0; }
-  100% { background-position: 30px 30px; }
-}
-@media only screen and (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
+</body>
+</html>
