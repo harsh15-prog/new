@@ -3,86 +3,109 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Love You Mom</title>
+  <title>Gift Vibes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom right, #fceabb, #f8b500);
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #fff0f5;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    .love-button {
-      padding: 15px 30px;
-      font-size: 18px;
-      background-color: #ff69b4;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-      transition: transform 0.2s ease;
-    }
-
-    .love-button:hover {
-      transform: scale(1.05);
-    }
-
-    #loveAnimation {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 182, 193, 0.5);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    #roseBud {
-      font-size: 60px;
-      opacity: 0;
-      transform: scale(0.5);
-      transition: all 1s ease-in-out;
+    header {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 20px;
+      position: relative;
     }
 
-    #roseBud.bloom {
-      opacity: 1;
-      transform: scale(1.5);
-    }
-
-    .sparkle {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background: gold;
+    .logo-placeholder {
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
-      animation: sparkleAnim 1s infinite;
+      background: #fff;
+      border: 2px dashed #f8b500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f8b500;
+      font-size: 0.8rem;
+      position: absolute;
+      top: -100px;
+      left: calc(50% - 40px);
     }
 
-    @keyframes sparkleAnim {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.5); opacity: 0.7; }
-      100% { transform: scale(1); opacity: 0; }
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 0 20px;
+    }
+
+    .category-btn {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      border: none;
+      border-radius: 16px;
+      padding: 15px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    .category-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 768px) {
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        font-size: 1.8rem;
+        text-align: center;
+      }
+      .category-btn {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <button id="momBtn" class="love-button">Click me MOM 💖</button>
+  <div class="logo-placeholder">LOGO</div>
+  <header>Gift Vibes</header>
 
-  <div id="loveAnimation">
-    <div id="roseBud">🌹</div>
+  <div class="category-grid">
+    <button class="category-btn" onclick="navigate('girl.html')">Girl</button>
+    <button class="category-btn" onclick="navigate('boy.html')">Boy</button>
+    <button class="category-btn" onclick="navigate('mom.html')">Mom</button>
+    <button class="category-btn" onclick="navigate('dad.html')">Dad</button>
+    <button class="category-btn" onclick="navigate('brother.html')">Brother</button>
+    <button class="category-btn" onclick="navigate('sister.html')">Sister</button>
+    <button class="category-btn" onclick="navigate('granny.html')">Granny</button>
+    <button class="category-btn" onclick="navigate('grandfather.html')">Grandfather</button>
   </div>
 
-  <!-- Optional audio -->
-  <audio id="loveSound" src="https://www.fesliyanstudios.com/play-mp3/387"></audio>
+  <script>
+    function navigate(page) {
+      window.location.href = page;
+    }
+  </script>
 
-  <script src="script.js"></script>
 </body>
 </html>
