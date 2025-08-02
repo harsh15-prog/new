@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>One Gift, Endless Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #ffe0ec, #f8f1ff);
+      color: #333;
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+      background: transparent;
+    }
+
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      color: #d63384;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-top: 0.5rem;
+    }
+
+    .category-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem auto;
+      max-width: 1000px;
+    }
+
+    .category-card {
+      flex: 1 1 150px;
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .category-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(214, 51, 132, 0.2);
+    }
+
+    .category-card h3 {
+      font-family: 'Poppins', sans-serif;
+      color: #d63384;
+      margin-top: 1rem;
+    }
+
+    .logo-placeholder {
+      width: 150px;
+      height: 150px;
+      margin: 1rem auto;
+      background: rgba(255, 255, 255, 0.5);
+      border: 2px dashed #d63384;
+      border-radius: 50%;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-placeholder"></div>
+    <h1>One Gift, Endless Love</h1>
+    <p>Find the perfect gift for everyone in your life</p>
+  </header>
+
+  <section class="category-section">
+    <div class="category-card" onclick="navigate('girl')">
+      <h3>Girl</h3>
+    </div>
+    <div class="category-card" onclick="navigate('boy')">
+      <h3>Boy</h3>
+    </div>
+    <div class="category-card" onclick="navigate('mom')">
+      <h3>Mom</h3>
+    </div>
+    <div class="category-card" onclick="navigate('dad')">
+      <h3>Dad</h3>
+    </div>
+    <div class="category-card" onclick="navigate('brother')">
+      <h3>Brother</h3>
+    </div>
+    <div class="category-card" onclick="navigate('sister')">
+      <h3>Sister</h3>
+    </div>
+    <div class="category-card" onclick="navigate('granny')">
+      <h3>Granny</h3>
+    </div>
+    <div class="category-card" onclick="navigate('grandfather')">
+      <h3>Grandfather</h3>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 YourGiftBrand. All rights reserved.
+  </footer>
+
+  <script>
+    function navigate(category) {
+      // You can later connect this with other HTML pages or dynamic content
+      alert(`Navigating to ${category} gifts...`);
+    }
+  </script>
+</body>
+</html>
