@@ -1,168 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Family Selector</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giftify | Personalized Gifts for Everyone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Nunito', sans-serif;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
-      background-size: 600% 600%;
-      animation: gradientBG 15s ease infinite;
-      min-height: 100vh;
+      background: linear-gradient(135deg, #FFE6F7, #E0F7FA);
+      color: #333;
+    }
+
+    .logo-bar {
       display: flex;
       align-items: center;
-      justify-content: center;
       padding: 20px;
     }
 
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    .logo {
+      font-size: 2rem;
+      margin-right: 10px;
     }
 
-    .role-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      max-width: 700px;
+    .brand-name {
+      font-size: 1.8rem;
+      font-weight: 600;
     }
 
-    .role-buttons button {
-      padding: 15px 30px;
-      border: none;
-      border-radius: 30px;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      font-size: 18px;
-      font-weight: 700;
-      color: #fff;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .role-buttons button:hover {
-      background: rgba(255, 255, 255, 0.4);
-      transform: scale(1.05);
-    }
-
-    .role-section {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(8px);
-      color: #fff;
-      animation: fadeIn 0.5s ease forwards;
+    .hero {
       text-align: center;
+      padding: 50px 20px;
     }
 
-    .role-section h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
     }
 
-    .back-button {
-      margin-top: 20px;
-      padding: 12px 25px;
-      font-size: 16px;
-      border: none;
-      background-color: #fff;
-      color: #333;
-      border-radius: 25px;
+    .hero p {
+      font-size: 1.2rem;
+      color: #666;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 20px;
+      margin: 40px;
+      padding: 20px;
+    }
+
+    .category-btn {
+      background: linear-gradient(135deg, #FFB6C1, #87CEFA);
+      padding: 20px;
+      text-align: center;
+      border-radius: 20px;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, background 0.3s ease;
       cursor: pointer;
-      transition: background-color 0.3s ease;
     }
 
-    .back-button:hover {
-      background-color: #eee;
+    .category-btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #ffa4c8, #63c8f0);
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .cta {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #444;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .category-btn {
+        font-size: 1rem;
+        padding: 15px;
+      }
     }
   </style>
 </head>
+
 <body>
-
-  <div class="role-buttons">
-    <button onclick="showSection('girl')">Girl</button>
-    <button onclick="showSection('boy')">Boy</button>
-    <button onclick="showSection('mom')">Mom</button>
-    <button onclick="showSection('dad')">Dad</button>
-    <button onclick="showSection('brother')">Brother</button>
-    <button onclick="showSection('sister')">Sister</button>
-    <button onclick="showSection('granny')">Granny</button>
-    <button onclick="showSection('grandfather')">Grandfather</button>
+  <div class="logo-bar">
+    <span class="logo">🎁</span>
+    <h1 class="brand-name">[Your Brand Name Here]</h1>
   </div>
 
-  <div id="girl" class="role-section">
-    <h1>Hello Girl 👧</h1>
-    <button class="back-button" onclick="goBack()">Back</button>
+  <div class="hero">
+    <h1>One Gift, Many Smiles</h1>
+    <p>Thoughtful gifts for every relation. Choose a category to explore the perfect gift.</p>
   </div>
 
-  <div id="boy" class="role-section">
-    <h1>Hello Boy 👦</h1>
-    <button class="back-button" onclick="goBack()">Back</button>
+  <div class="categories">
+    <div class="category-btn">Girl 🎀</div>
+    <div class="category-btn">Boy 🚀</div>
+    <div class="category-btn">Mom 🌷</div>
+    <div class="category-btn">Dad 🎩</div>
+    <div class="category-btn">Brother 🎮</div>
+    <div class="category-btn">Sister 💄</div>
+    <div class="category-btn">Granny 👵</div>
+    <div class="category-btn">Grandfather 👴</div>
   </div>
 
-  <div id="mom" class="role-section">
-    <h1>Hello Mom 👩‍👧</h1>
-    <button class="back-button" onclick="goBack()">Back</button>
+  <div class="cta">
+    Scroll down to see our bestsellers or tap a category to begin your gifting journey 💝
   </div>
-
-  <div id="dad" class="role-section">
-    <h1>Hello Dad 👨‍👧</h1>
-    <button class="back-button" onclick="goBack()">Back</button>
-  </div>
-
-  <div id="brother" class="role-section">
-    <h1>Hello Brother 👦</h1>
-    <button class="back-button" onclick="goBack()">Back</button>
-  </div>
-
-  <div id="sister" class="role-section">
-    <h1>Hello Sister 👧</h1>
-    <button class="back-button" onclick="goBack()">Back</button>
-  </div>
-
-  <div id="granny" class="role-section">
-    <h1>Hello Granny 👵</h1>
-    <button class="back-button" onclick="goBack()">Back</button>
-  </div>
-
-  <div id="grandfather" class="role-section">
-    <h1>Hello Grandfather 👴</h1>
-    <button class="back-button" onclick="goBack()">Back</button>
-  </div>
-
-  <script>
-    function showSection(id) {
-      document.querySelectorAll('.role-section').forEach(sec => sec.style.display = 'none');
-      document.getElementById(id).style.display = 'flex';
-    }
-
-    function goBack() {
-      document.querySelectorAll('.role-section').forEach(sec => sec.style.display = 'none');
-    }
-  </script>
-
 </body>
+
 </html>
