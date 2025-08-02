@@ -1,23 +1,35 @@
-function showLove() {
-  alert("A flower for you! 🌹 Stay romantic 🌸");
-}
-function showLove() {
-  const animation = document.getElementById("loveAnimation");
-  const rose = document.getElementById("roseBud");
+document.addEventListener("DOMContentLoaded", function () {
+  // Button click to go to mom.html
+  const momButton = document.getElementById("momBtn");
+  if (momButton) {
+    momButton.addEventListener("click", function () {
+      window.location.href = "mom.html";
+    });
+  }
 
-  animation.style.display = "flex";
+  // Flower animation function
+  function showLove() {
+    const animation = document.getElementById("loveAnimation");
+    const rose = document.getElementById("roseBud");
 
-  // After 2.5s, transform bud into full rose
-  setTimeout(() => {
-    rose.classList.add("bloom");
-  }, 2500);
+    if (animation && rose) {
+      animation.style.display = "flex";
 
-  // Optional: hide animation after a few seconds
-  setTimeout(() => {
-    animation.style.display = "none";
-    rose.classList.remove("bloom"); // reset
-  }, 6000);
-}
-document.getElementById("momBtn").addEventListener("click", function () {
-  window.location.href = "mom.html"; // Make sure mom.html file exists
+      // Bloom rose after 2.5s
+      setTimeout(() => {
+        rose.classList.add("bloom");
+      }, 2500);
+
+      // Hide animation after 6s
+      setTimeout(() => {
+        animation.style.display = "none";
+        rose.classList.remove("bloom");
+      }, 6000);
+    } else {
+      alert("A flower for you! 🌹 Stay romantic 🌸");
+    }
+  }
+
+  // Optional: trigger `showLove()` somewhere (example only)
+  // document.getElementById("loveBtn").addEventListener("click", showLove);
 });
