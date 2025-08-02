@@ -4,48 +4,157 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blossom Love</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/2955/2955457.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #fffaf0, #ffe4e1);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: #b65c5c;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #777;
+    }
+
+    .section-selector {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    .section-button {
+      background-color: #ffccd5;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      color: #444;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .section-button:hover {
+      background-color: #f6a5b2;
+    }
+
+    .interface {
+      position: fixed;
+      top: 0;
+      left: 100%;
+      width: 100%;
+      height: 100vh;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: left 0.6s ease-in-out;
+      z-index: 100;
+      flex-direction: column;
+    }
+
+    .interface.active {
+      left: 0;
+    }
+
+    .interface h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #b65c5c;
+      margin-bottom: 1rem;
+    }
+
+    .interface p {
+      font-size: 1.1rem;
+      color: #666;
+      max-width: 600px;
+      text-align: center;
+      padding: 0 2rem;
+    }
+
+    .close-btn {
+      margin-top: 2rem;
+      background-color: #b65c5c;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <img src="https://i.ibb.co/4nKxcFkr/b84310d2-2270-4426-95b6-aec844606a1b.png" alt="Blossom Love Logo" style="height: 100px;">
-    <p>Spreading love, one flower at a time.</p>
+    <h1>Blossom Love</h1>
+    <p>Crafted with care for beautiful souls</p>
   </header>
 
-  <section class="hero">
-    <h2>This is the test site made by Harsh.prog</h2>
-    <p>Perfect for your special moments</p>
-    <button onclick="showLove()">Send Love</button>
+  <section class="section-selector">
+    <button class="section-button" onclick="showInterface('Girl')">Girl</button>
+    <button class="section-button" onclick="showInterface('Boy')">Boy</button>
+    <button class="section-button" onclick="showInterface('Mom')">Mom</button>
+    <button class="section-button" onclick="showInterface('Dad')">Dad</button>
+    <button class="section-button" onclick="showInterface('Brother')">Brother</button>
+    <button class="section-button" onclick="showInterface('Sister')">Sister</button>
+    <button class="section-button" onclick="showInterface('Granny')">Granny</button>
+    <button class="section-button" onclick="showInterface('Grandfather')">Grandfather</button>
   </section>
 
-  <section class="products">
-    <h3>Our Flowers</h3>
-    <div class="product-list">
-      <div class="product">
-        <img src="https://i.imgur.com/NV4vyo5.jpg" alt="Red Rose" />
-        <p>Classic Red Roses</p>
-      </div>
-      <div class="product">
-        <img src="https://i.imgur.com/ifnm0oF.jpg" alt="Pink Bouquet" />
-        <p>Pink Peony Bouquet</p>
-      </div>
-      <div class="product">
-        <img src="https://i.imgur.com/rs8kYAJ.jpg" alt="Mixed Flowers" />
-        <p>Spring Love Mix</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>Contact us: harshshaloth15@gmail.com</p>
-  </footer>
-
-  <div class="love-animation" id="loveAnimation">
-    <img src="https://i.imgur.com/z9d64g6.png" id="rosebud" class="rose" />
+  <div class="interface" id="interface">
+    <h2 id="section-title">Title</h2>
+    <p id="section-desc">This is a placeholder for the selected section. Add personal stories, products, or features for each role.</p>
+    <button class="close-btn" onclick="hideInterface()">Go Back</button>
   </div>
 
-  <script src="script.js"></script>
+  <footer>
+    © 2025 Blossom Love by Harsh. All rights reserved.
+  </footer>
+
+  <script>
+    const interfaceEl = document.getElementById('interface');
+    const titleEl = document.getElementById('section-title');
+    const descEl = document.getElementById('section-desc');
+
+    function showInterface(section) {
+      titleEl.innerText = section;
+      descEl.innerText = `Welcome to the ${section}'s world! Here's where we celebrate love, connection, and special memories.`;
+      interfaceEl.classList.add('active');
+    }
+
+    function hideInterface() {
+      interfaceEl.classList.remove('active');
+    }
+  </script>
 </body>
 </html>
-<div data-aos="fade-up">Your content</div>
-
