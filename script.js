@@ -18,3 +18,6 @@ function showLove() {
     rose.classList.remove("bloom"); // reset
   }, 6000);
 }
+document.getElementById("momBtn").addEventListener("click", function () {
+  window.location.href = "mom.html"; // Make sure mom.html file exists
+});
