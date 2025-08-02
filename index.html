@@ -2,159 +2,167 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blossom Love</title>
-  <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/2955/2955457.png" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Family Selector</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800&display=swap" rel="stylesheet">
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
       font-family: 'Nunito', sans-serif;
     }
 
     body {
-      background: linear-gradient(to right, #fffaf0, #ffe4e1);
-      color: #333;
-      overflow-x: hidden;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+      background-size: 600% 600%;
+      animation: gradientBG 15s ease infinite;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
 
-    header {
-      padding: 2rem;
-      text-align: center;
-      background-color: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      color: #b65c5c;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      color: #777;
-    }
-
-    .section-selector {
+    .role-buttons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1rem;
-      padding: 2rem;
+      gap: 15px;
+      max-width: 700px;
     }
 
-    .section-button {
-      background-color: #ffccd5;
-      padding: 1rem 2rem;
+    .role-buttons button {
+      padding: 15px 30px;
       border: none;
-      border-radius: 12px;
-      font-size: 1.2rem;
-      color: #444;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
       cursor: pointer;
       transition: all 0.3s ease;
     }
 
-    .section-button:hover {
-      background-color: #f6a5b2;
+    .role-buttons button:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: scale(1.05);
     }
 
-    .interface {
-      position: fixed;
-      top: 0;
-      left: 100%;
-      width: 100%;
-      height: 100vh;
-      background-color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: left 0.6s ease-in-out;
-      z-index: 100;
+    .role-section {
+      display: none;
       flex-direction: column;
-    }
-
-    .interface.active {
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
       left: 0;
-    }
-
-    .interface h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      color: #b65c5c;
-      margin-bottom: 1rem;
-    }
-
-    .interface p {
-      font-size: 1.1rem;
-      color: #666;
-      max-width: 600px;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      animation: fadeIn 0.5s ease forwards;
       text-align: center;
-      padding: 0 2rem;
     }
 
-    .close-btn {
-      margin-top: 2rem;
-      background-color: #b65c5c;
-      color: white;
+    .role-section h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .back-button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 16px;
       border: none;
-      padding: 0.6rem 1.5rem;
-      border-radius: 10px;
+      background-color: #fff;
+      color: #333;
+      border-radius: 25px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #888;
+    .back-button:hover {
+      background-color: #eee;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Blossom Love</h1>
-    <p>Crafted with care for beautiful souls</p>
-  </header>
 
-  <section class="section-selector">
-    <button class="section-button" onclick="showInterface('Girl')">Girl</button>
-    <button class="section-button" onclick="showInterface('Boy')">Boy</button>
-    <button class="section-button" onclick="showInterface('Mom')">Mom</button>
-    <button class="section-button" onclick="showInterface('Dad')">Dad</button>
-    <button class="section-button" onclick="showInterface('Brother')">Brother</button>
-    <button class="section-button" onclick="showInterface('Sister')">Sister</button>
-    <button class="section-button" onclick="showInterface('Granny')">Granny</button>
-    <button class="section-button" onclick="showInterface('Grandfather')">Grandfather</button>
-  </section>
-
-  <div class="interface" id="interface">
-    <h2 id="section-title">Title</h2>
-    <p id="section-desc">This is a placeholder for the selected section. Add personal stories, products, or features for each role.</p>
-    <button class="close-btn" onclick="hideInterface()">Go Back</button>
+  <div class="role-buttons">
+    <button onclick="showSection('girl')">Girl</button>
+    <button onclick="showSection('boy')">Boy</button>
+    <button onclick="showSection('mom')">Mom</button>
+    <button onclick="showSection('dad')">Dad</button>
+    <button onclick="showSection('brother')">Brother</button>
+    <button onclick="showSection('sister')">Sister</button>
+    <button onclick="showSection('granny')">Granny</button>
+    <button onclick="showSection('grandfather')">Grandfather</button>
   </div>
 
-  <footer>
-    © 2025 Blossom Love by Harsh. All rights reserved.
-  </footer>
+  <div id="girl" class="role-section">
+    <h1>Hello Girl 👧</h1>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
+
+  <div id="boy" class="role-section">
+    <h1>Hello Boy 👦</h1>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
+
+  <div id="mom" class="role-section">
+    <h1>Hello Mom 👩‍👧</h1>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
+
+  <div id="dad" class="role-section">
+    <h1>Hello Dad 👨‍👧</h1>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
+
+  <div id="brother" class="role-section">
+    <h1>Hello Brother 👦</h1>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
+
+  <div id="sister" class="role-section">
+    <h1>Hello Sister 👧</h1>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
+
+  <div id="granny" class="role-section">
+    <h1>Hello Granny 👵</h1>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
+
+  <div id="grandfather" class="role-section">
+    <h1>Hello Grandfather 👴</h1>
+    <button class="back-button" onclick="goBack()">Back</button>
+  </div>
 
   <script>
-    const interfaceEl = document.getElementById('interface');
-    const titleEl = document.getElementById('section-title');
-    const descEl = document.getElementById('section-desc');
-
-    function showInterface(section) {
-      titleEl.innerText = section;
-      descEl.innerText = `Welcome to the ${section}'s world! Here's where we celebrate love, connection, and special memories.`;
-      interfaceEl.classList.add('active');
+    function showSection(id) {
+      document.querySelectorAll('.role-section').forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'flex';
     }
 
-    function hideInterface() {
-      interfaceEl.classList.remove('active');
+    function goBack() {
+      document.querySelectorAll('.role-section').forEach(sec => sec.style.display = 'none');
     }
   </script>
+
 </body>
 </html>
