@@ -1,35 +1,44 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Button click to go to mom.html
   const momButton = document.getElementById("momBtn");
-  if (momButton) {
-    momButton.addEventListener("click", function () {
+  const animation = document.getElementById("loveAnimation");
+  const rose = document.getElementById("roseBud");
+  const sound = document.getElementById("loveSound");
+
+  momButton.addEventListener("click", function () {
+    showLove();
+    setTimeout(() => {
       window.location.href = "mom.html";
-    });
+    }, 6000);
+  });
+
+  function showLove() {
+    if (sound) sound.play();
+
+    animation.style.display = "flex";
+    createSparkles(20);
+
+    setTimeout(() => {
+      rose.classList.add("bloom");
+    }, 2500);
+
+    setTimeout(() => {
+      animation.style.display = "none";
+      rose.classList.remove("bloom");
+    }, 6000);
   }
 
-  // Flower animation function
-  function showLove() {
-    const animation = document.getElementById("loveAnimation");
-    const rose = document.getElementById("roseBud");
+  function createSparkles(count) {
+    for (let i = 0; i < count; i++) {
+      const sparkle = document.createElement("div");
+      sparkle.classList.add("sparkle");
+      sparkle.style.top = Math.random() * window.innerHeight + "px";
+      sparkle.style.left = Math.random() * window.innerWidth + "px";
+      sparkle.style.animationDuration = (Math.random() * 1 + 0.5) + "s";
+      animation.appendChild(sparkle);
 
-    if (animation && rose) {
-      animation.style.display = "flex";
-
-      // Bloom rose after 2.5s
       setTimeout(() => {
-        rose.classList.add("bloom");
-      }, 2500);
-
-      // Hide animation after 6s
-      setTimeout(() => {
-        animation.style.display = "none";
-        rose.classList.remove("bloom");
-      }, 6000);
-    } else {
-      alert("A flower for you! 🌹 Stay romantic 🌸");
+        sparkle.remove();
+      }, 1500);
     }
   }
-
-  // Optional: trigger `showLove()` somewhere (example only)
-  // document.getElementById("loveBtn").addEventListener("click", showLove);
 });
